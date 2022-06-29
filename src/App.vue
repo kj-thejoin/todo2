@@ -1,5 +1,8 @@
+<!-- App.vue -->
+
 <template>
   <div id="app">
+    <router-view></router-view>
     <TodoHeader></TodoHeader>
     <!-- <TodoInput v-on:하위 컴포넌트에서 발생시킨 이벤트 이름="현재 컴포넌트에서 메서드 명"></TodoInput> -->
     <TodoInput v-on:addTodoItem="addOneItem"></TodoInput> 

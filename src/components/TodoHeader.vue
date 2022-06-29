@@ -1,5 +1,6 @@
 <template>
   <header>
+    <router-view></router-view>
     <h1>Todo List 작성하기!</h1>
   </header>
 </template>

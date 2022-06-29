@@ -1,9 +1,10 @@
 <template>
   <div>
+    <router-view></router-view>
     <ul>
       <li v-for="(todoItem, index) in propsdata" class="shadow" v-bind:key="todoItem.item">
       <!-- propsdata로 변경 -->
-        {{ todoItem }}
+        {{ todoItem.item }}
         <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
           <i class="fas fa-trash-alt"></i>
         </span>
