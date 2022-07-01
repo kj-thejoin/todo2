@@ -1,4 +1,6 @@
-// // router/index.js
+// // // router/index.js
+
+
 // import Vue from 'vue'
 // import VueRouter from 'vue-router'
 
@@ -12,9 +14,7 @@
 // import TodoFooter from '../components/TodoFooter.vue'
 
 
-// const router = new VueRouter ({
-//     mode:'history' // 해시값 제거 방식
-//     routes:
+// const routes = 
 //     [
 //     {
 //         path: "/home",
@@ -43,4 +43,9 @@
 //     }    
 // ]
 
-// })
+
+// // router 객체생성
+// const router = new VueRouter({
+//     // mode: 'history',
+//     routes
+//   });
