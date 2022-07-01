@@ -1,8 +1,7 @@
 <template>
   <div class="clearAllContainer">
-    <router-view></router-view>
-      <span class="clearAllBtn" v-on:click="clearTodo">Clear All
-      </span>
+    <!-- <router-view></router-view> -->
+      <span class="clearAllBtn" v-on:click="clearTodo">Clear All</span>
   </div>
 </template>
 
@@ -14,6 +13,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <style scoped>

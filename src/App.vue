@@ -2,12 +2,16 @@
 
 <template>
   <div id="app">
-    <router-view></router-view>
+    <!-- <router-view></router-view> -->
     <TodoHeader></TodoHeader>
     <!-- <TodoInput v-on:하위 컴포넌트에서 발생시킨 이벤트 이름="현재 컴포넌트에서 메서드 명"></TodoInput> -->
     <TodoInput v-on:addTodoItem="addOneItem"></TodoInput> 
    <!-- <TodoList v-bind:내려보낼 프롭스 속성이름="현재 위치의 컴포넌트 데이터 속성"></TodoList> -->
-    <TodoList v-bind:propsdata="todoItems" v-on:removeItem="removeOneItem" v-on:toggleItem="toggleOneItem"></TodoList>
+    <TodoList v-bind:propsdata="todoItems" v-on:removeItem="removeOneItem" v-on:toggleEvent="toggleOneItem" 
+    @checkItem="checkItem"
+    :checked="checked"
+    
+    @fixContent="fixContent($event);"></TodoList>
     <TodoFooter v-on:clearAll="clearAllItems"></TodoFooter>
   </div>
 </template>
@@ -22,7 +26,9 @@ import TodoFooter from './components/TodoFooter.vue'
 export default {
   data: function() { //옮김
     return {
-      todoItems: []
+      todoItems: [],
+      toFix: false,
+      checked: 0,
     }
   },
   methods: {
@@ -44,6 +50,26 @@ export default {
     clearAllItems: function() {
       localStorage.clear();
       this.todoItems = []; //다시 빈 배열로 만들기
+    },
+    fixContent(todoItem){
+      let lastIdx = this.todoItems.length -1;
+      
+      this.tempArr = this.todoItems.splice(this.checked, (this.todoItems.length - this.checked), todoItem); //수정할 타겟부터 끝까지 잘라내고, todoItems의 잘라낸 자리에 새로운 값 넣음 
+      //this.todoItems.push(todoItem); //수정한 데이터 삽입
+      if(this.checked !== lastIdx){ //체크한게 배열 마지막 값이 아니면
+        let tempArr2 = this.tempArr.splice(1, this.tempArr.length -1); //최초값은 수정할 데이터이므로 제거
+        this.tempArr = this.todoItems.concat(tempArr2);
+        this.todoItems = this.tempArr;
+      }
+      //로컬스토리지 수정
+      localStorage.clear();//기존 로컬스토리지 삭제
+      for (let i = 0; i < this.todoItems.length; i++) { //새 데이터 삽입
+        localStorage.setItem(this.todoItems[i], this.todoItems[i]);
+      }
+    },
+    checkItem(index){
+      console.log(index);
+      this.checked = index;
     }
   },
   created: function() { //옮김
@@ -94,5 +120,16 @@ html, body {
   font-family: 'Itim', cursive;
 }
 
+
+.checkBtn {
+  line-height: 45px;
+  color: #62acde;
+  margin-right: 5px;
+}
+.checkBtnCompleted {
+  color: #b3adad;
+  text-decoration: line-through;
+        background-color: black;
+}
 
 </style>
