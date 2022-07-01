@@ -1,6 +1,6 @@
 <!-- Modal.vue -->
-
-<template>
+<!-- <script type="text/x-template" id="modal-template"> -->
+ <template>
   <transition name="modal">
     <div class="modal-mask">
       <div class="modal-wrapper">
@@ -27,11 +27,12 @@
       </div>
     </div>
   </transition>
-</template>
+ </template>
+<!-- // </script> -->
 
 
 <style scoped>
-    .modal-mask {
+  .modal-mask {
         position: fixed;
         z-index: 9998;
         top: 0;
@@ -43,16 +44,16 @@
         transition: opacity .3s ease;
     }
 
-    .modal-wrapper {
-        display: table-cell;
-        /* position:absolute;
-        left:50%;
-        top:50%;
-        transform: translate(-50%,-50); */
-        vertical-align: middle;
+  .modal-wrapper {
+      display: table-cell;
+      /* position:absolute;
+      left:50%;
+      top:50%;
+      transform: translate(-50%,-50); */
+      vertical-align: middle;
     }
 
-    .modal-container {
+  .modal-container {
     width: 300px;
     margin: 0px auto;
     padding: 20px 30px;
@@ -61,20 +62,25 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
     transition: all .3s ease;
     font-family: Helvetica, Arial, sans-serif;
-    }
+  }
 
-    .modal-header h3 {
+  .modal-header h3 {
     margin-top: 0;
     color: #42b983;
-    }
+      
+  }
 
-    .modal-body {
+  .modal-body {
     margin: 20px 0;
-    }
+  }
 
-    .modal-default-button {
+  .modal-footer h3{
+    color:aqua;
+  }
+
+  .modal-default-button {
     float: right;
-    }
+  }
 
     /*
     * The following styles are auto-applied to elements with
@@ -85,17 +91,17 @@
     * these styles.
     */
 
-    .modal-enter {
+  .modal-enter {
     opacity: 0;
-    }
+  }
 
-    .modal-leave-active {
+  .modal-leave-active {
     opacity: 0;
-    }
+  }
 
-    .modal-enter .modal-container,
+  .modal-enter .modal-container,
     .modal-leave-active .modal-container {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
-    }
+  }
 </style>

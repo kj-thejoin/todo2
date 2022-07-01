@@ -27,8 +27,9 @@
             정말 삭제하시겠습니까?
           </h3>
           <h3 slot="footer">
-            <i class="fa-solid fa-y yes" v-on:click="[removeTodo(todoItem, index), showModal=false]">예</i>
-            <i class="fa-solid fa-ban no" @click="showModal=false">아니오</i>
+            <i class="yesBtn fa-solid fa-circle-check" v-on:click="removeTodo(todoItem, index)">예</i>
+            <!-- <font-awesome-icon icon="fa-solid fa-check" /> -->
+            <i class="noBtn fa-solid fa-ban no" @click="showModal=false">아니오</i>
           </h3>
 
         </Modal>
@@ -142,5 +143,29 @@ li {
   opacity: 0;
   transform: translateY(30px);
 }
+
+
+.modal-header h3 {
+    margin-top: 0;
+    color: #42b983;
+    font-size:18px;
+    
+      
+  }
+
+  .modal-body{
+    margin: 20px 0;
+    
+  }
+
+  .modal-footer h3{
+    
+    color: #42b983;
+    font-size:18px;
+  }
+
+  .yesBtn{
+    margin-right:10px;
+  }
 </style>
 
