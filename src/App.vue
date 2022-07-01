@@ -10,7 +10,7 @@
     <TodoList v-bind:propsdata="todoItems" v-on:removeItem="removeOneItem" v-on:toggleEvent="toggleOneItem" 
     @checkItem="checkItem"
     :checked="checked"
-    
+    :completed ="completed"
     @fixContent="fixContent($event);"></TodoList>
     <TodoFooter v-on:clearAll="clearAllItems"></TodoFooter>
   </div>
@@ -29,6 +29,7 @@ export default {
       todoItems: [],
       toFix: false,
       checked: 0,
+      completed:false
     }
   },
   methods: {
@@ -43,7 +44,9 @@ export default {
     },
     toggleOneItem: function(todoItem, index) {
       //todoItem.completed = !todoItem.completed;
+       
       this.todoItems[index].completed = !this.todoItems[index].completed;
+      this.completed = this.todoItems[index].completed;
       localStorage.removeItem(todoItem.item);
       localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
     },
