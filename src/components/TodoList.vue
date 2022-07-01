@@ -4,7 +4,7 @@
     <!-- <ul> -->
     <transition-group name="list" tag="ul">
       <li v-for="(todoItem, index) in propsdata" class="shadow" v-bind:key="todoItem.item" >
-      <i class=" fas fa-check" aria-hidden="true" @click="toggleComplete(todoItem, index)" :class="[completed && checked==index ? 'checkBtnCompleted' :'checkBtn']"></i>
+      <i class="checkBtn fas fa-check" aria-hidden="true" @click="toggleComplete(todoItem, index)" :class="[completed && checked==index ? 'checkBtnCompleted' :'checkBtn']"></i>
       <!-- propsdata로 변경 -->
         {{ todoItem.item }}
 
@@ -40,7 +40,7 @@
 
 
 <script>
-// import Modal from './common/Modal.vue';
+import Modal from './common/ModalChk.vue';
 
 export default {
     data() {
@@ -52,10 +52,10 @@ export default {
     }
   }
   ,
-  // components: {
-  //   "Modal": Modal
-  // },
-  props: {'propsdata' : [], 'toFix':Boolean, 'checked':Number},
+  components: {
+    "Modal": Modal
+  },
+  props: {'propsdata' : [], 'toFix':Boolean, 'checked':Number, 'completed': Boolean},
   methods: {
     removeTodo: function(todoItem, index) {
       this.$emit('removeItem', todoItem, index);
