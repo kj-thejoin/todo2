@@ -5,7 +5,7 @@
   </header>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 h1 {
   color: #2F3B52;
   font-weight: 900;

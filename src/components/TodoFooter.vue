@@ -16,7 +16,7 @@ export default {
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .clearAllContainer {
   width: 8.5rem;
   height: 50px;
