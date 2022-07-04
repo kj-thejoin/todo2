@@ -1,7 +1,8 @@
 <!-- App.vue -->
 
 <template>
-  <div id="app">
+  <div id="app" class="app">
+    <div class="container">
     <router-view></router-view>
     <TodoHeader></TodoHeader>
     <!-- <TodoInput v-on:하위 컴포넌트에서 발생시킨 이벤트 이름="현재 컴포넌트에서 메서드 명"></TodoInput> -->
@@ -21,17 +22,11 @@
 
 
     <TodoFooter v-on:clearAll="clearAllItems"></TodoFooter>
+    </div>
   </div>
 </template>
 
 <script>
-import TodoHeader from './components/TodoHeader.vue';
-import TodoInput from './components/TodoInput.vue';
-import TodoList from './components/TodoList.vue';
-import TodoFooter from './components/TodoFooter.vue';
-
-
-
 export default {
   name : 'App',
   data: function() { //옮김
@@ -94,19 +89,13 @@ export default {
         }
       }
     }
-  },
-  components: {
-    'TodoHeader': TodoHeader,
-    'TodoInput': TodoInput,
-    'TodoList': TodoList,
-    'TodoFooter': TodoFooter
   }
 }
 </script>
 
 <style lang="scss">
-@import "./assets/css/reset.scss";
-@import "./assets/css/style.scss";
+ @import './assets/style/reset.scss';
+//  @import './assets/style/style.scss';
 
 body {
   text-align:center;
@@ -135,6 +124,11 @@ html, body {
 }
 #app {
   font-family: 'Itim', cursive;
+  width:1000px; margin:0 auto;
+}
+.container{
+  width:800px;
+  margin:0 auto;
 }
 
 
