@@ -10,10 +10,16 @@
     <TodoList v-bind:propsdata="todoItems" v-on:removeItem="removeOneItem"
     @:toggleEvent="toggleOneItem" 
     :completed ="completed"
+
+
+
     @checkItem="checkItem"
     :checked="checked"
     
     @fixContent="fixContent($event);"></TodoList>
+
+
+
     <TodoFooter v-on:clearAll="clearAllItems"></TodoFooter>
   </div>
 </template>
@@ -32,7 +38,7 @@ export default {
       todoItems: [],
       toFix: false,
       checked: 0,
-      completed:false
+      // completed:false
     }
   },
   methods: {

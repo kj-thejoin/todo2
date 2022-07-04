@@ -8,9 +8,10 @@
       <!-- propsdata로 변경 -->
         {{ todoItem.item }}
 
-        <input type="text" v-model="todoItems" @keyup.enter="changeItem" v-show="toFix" placeholder="수정 할 내용을 입력하세요." v-bind:class="[todoItems.completed ? 'checkBtnCompleted' :'checkBtn']" />
+        <input type="text" v-model="todoItems" @keyup.enter="changeItem" v-show="toFix" placeholder="수정 할 내용을 입력하세요."  />
         <span class="fixBtn">
-          <i calss="fas fa-pencil-alt" @click="changeItem">수정</i>
+          <i class="fa-solid fa-pencil" @click="changeItem"></i>
+          <!-- <i calss="fas fa-pencil-alt" @click="changeItem">수정</i> -->
         </span>
 
         
@@ -31,7 +32,6 @@
             <!-- <font-awesome-icon icon="fa-solid fa-check" /> -->
             <i class="noBtn fa-solid fa-ban no" @click="showModal=false">아니오</i>
           </h3>
-
         </Modal>
       </li>
     <!-- </ul> -->
@@ -67,6 +67,7 @@ export default {
     changeItem : function() {
       // 수정 사항이 있을 경우
       if(this.todoItems !== "") {
+        // let value = this.todoItems && this.todoItems.trim();
         let value = this.todoItems && this.todoItems.trim();
         this.$emit('fixContent', value);
         this.todoItems = '';
