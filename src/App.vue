@@ -12,10 +12,10 @@
     :completed ="completed"
 
 
-
     @checkItem="checkItem"
     :checked="checked"
     
+    @toFixItem = "toFix = !toFix; checked = $event;"
     @fixContent="fixContent($event);"></TodoList>
 
 
@@ -25,16 +25,17 @@
 </template>
 
 <script>
-import TodoHeader from './components/TodoHeader.vue'
-import TodoInput from './components/TodoInput.vue'
-import TodoList from './components/TodoList.vue'
-import TodoFooter from './components/TodoFooter.vue'
+import TodoHeader from './components/TodoHeader.vue';
+import TodoInput from './components/TodoInput.vue';
+import TodoList from './components/TodoList.vue';
+import TodoFooter from './components/TodoFooter.vue';
 
 
 
 export default {
   data: function() { //옮김
     return {
+      id: [],
       todoItems: [],
       toFix: false,
       checked: 0,
@@ -55,7 +56,7 @@ export default {
       //todoItem.completed = !todoItem.completed;
        
       this.todoItems[index].completed = !this.todoItems[index].completed;
-      this.completed = this.todoItems[index].completed;
+      // this.completed = this.todoItems[index].completed;
       localStorage.removeItem(todoItem.item);
       localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
     },
