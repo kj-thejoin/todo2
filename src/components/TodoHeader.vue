@@ -5,6 +5,14 @@
   </header>
 </template>
 
+
+<script>
+
+export default {
+  name : 'TodoHeader',
+};
+</script>
+
 <style lang="scss" scoped>
 h1 {
   color: #2F3B52;

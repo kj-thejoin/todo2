@@ -7,6 +7,7 @@
 
 <script>
 export default {
+  name : 'TodoFooter',
   methods: {
     clearTodo: function() {
       this.$emit('clearAll');

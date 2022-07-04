@@ -33,6 +33,7 @@ import TodoFooter from './components/TodoFooter.vue';
 
 
 export default {
+  name : 'App',
   data: function() { //옮김
     return {
       id: [],

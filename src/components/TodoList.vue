@@ -44,6 +44,7 @@
 import Modal from './common/ModalChk.vue';
 
 export default {
+    name: 'TodoList',
     data() {
     return {
       todoItems: [],
