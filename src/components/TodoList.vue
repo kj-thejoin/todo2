@@ -167,5 +167,6 @@ li {
   .yesBtn{
     margin-right:10px;
   }
+  
 </style>
 
