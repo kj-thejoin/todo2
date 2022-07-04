@@ -1,24 +1,7 @@
-# vue-todo2
 
-## Project setup
-```
-npm install
-```
+v.1.1
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+v. 1
+[TodoList 만들기] Vue를 익히기 위해 Todo List를 만들어보고 그에 필요한 지식들을 습득하기.
+- 수정하기 / Router / 체크하기 등 수정사항 필요
