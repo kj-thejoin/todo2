@@ -34,9 +34,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-input:focus {
-  outline: none;
-}
+
+  input:focus{
+    outline: none;
+  }
 .inputBox {
   background: white;
   height: 50px;

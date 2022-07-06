@@ -3,20 +3,20 @@
 <template>
   <div id="app" class="app">
     <div class="container">
-    <router-view></router-view>
+    <!-- <router-view></router-view> -->
+    <!-- <NavigationBar></NavigationBar> -->
     <TodoHeader></TodoHeader>
     <!-- <TodoInput v-on:하위 컴포넌트에서 발생시킨 이벤트 이름="현재 컴포넌트에서 메서드 명"></TodoInput> -->
     <TodoInput v-on:addTodoItem="addOneItem"></TodoInput> 
    <!-- <TodoList v-bind:내려보낼 프롭스 속성이름="현재 위치의 컴포넌트 데이터 속성"></TodoList> -->
     <TodoList v-bind:propsdata="todoItems" v-on:removeItem="removeOneItem"
-    @:toggleEvent="toggleOneItem" 
-    :completed ="completed"
-
+    :toggleEvent="toggleOneItem" 
+    
 
     @checkItem="checkItem"
     :checked="checked"
     
-    @toFixItem = "toFix = !toFix; checked = $event;"
+    @toFixItem = "toFix = !toFix;"
     @fixContent="fixContent($event);"></TodoList>
 
 
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+
 export default {
   name : 'App',
   data: function() { //옮김
@@ -35,6 +36,7 @@ export default {
       todoItems: [],
       toFix: false,
       checked: 0,
+      tempArr: '',
       // completed:false
     }
   },
@@ -56,6 +58,11 @@ export default {
       localStorage.removeItem(todoItem.item);
       localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
     },
+    // completedCheck () {
+    //   this.todoItems[index].completed = !this.todoItems[index].completed;
+    // },
+
+
     clearAllItems: function() {
       localStorage.clear();
       this.todoItems = []; //다시 빈 배열로 만들기
@@ -64,11 +71,12 @@ export default {
       let lastIdx = this.todoItems.length -1;
       
       this.tempArr = this.todoItems.splice(this.checked, (this.todoItems.length - this.checked), todoItem); //수정할 타겟부터 끝까지 잘라내고, todoItems의 잘라낸 자리에 새로운 값 넣음 
-      //this.todoItems.push(todoItem); //수정한 데이터 삽입
+      this.todoItems.push(todoItem); //수정한 데이터 삽입
       if(this.checked !== lastIdx){ //체크한게 배열 마지막 값이 아니면
         let tempArr2 = this.tempArr.splice(1, this.tempArr.length -1); //최초값은 수정할 데이터이므로 제거
         this.tempArr = this.todoItems.concat(tempArr2);
         this.todoItems = this.tempArr;
+      // this.todoItem = todoItems;
       }
       //로컬스토리지 수정
       localStorage.clear();//기존 로컬스토리지 삭제
@@ -106,7 +114,12 @@ body {
 input {
   border-style: groove;
   width:200px;
+  outline:none;
 }
+input:focus {
+  outline:none;
+}
+
 
 button{
   border-style:groove;
