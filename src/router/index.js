@@ -14,6 +14,41 @@
 // import TodoFooter from '../components/TodoFooter.vue';
 
 
+
+
+// // router 객체생성
+// const router = new VueRouter({
+//     mode: 'history',
+//     routes : [
+//             {
+//                 path: "/",
+//                 name: "App",
+//                 component: App
+//             },
+//             {
+//                 path: "/header",
+//                 name: "header",
+//                 component: TodoHeader
+//             },
+//             {
+//                 path: "/input",
+//                 name: "input",
+//                 component: TodoInput
+//             },
+//             {
+//                 path: "/list",
+//                 name: "list",
+//                 component: TodoList
+//             },
+//             {
+//                 path: "/footer",
+//                 name: "footer",
+//                 component: TodoFooter
+//             }    
+//     ]
+//   });
+
+
 // const routes = 
 //     [
 //     {
@@ -43,11 +78,5 @@
 //     }    
 // ]
 
-
-// // router 객체생성
-// const router = new VueRouter({
-//     mode: 'history',
-//     routes
-//   });
 
 // export default router;

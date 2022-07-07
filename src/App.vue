@@ -2,26 +2,27 @@
 
 <template>
   <div id="app" class="app">
-    <div class="container">
-    <!-- <router-view></router-view> -->
     <!-- <NavigationBar></NavigationBar> -->
-    <TodoHeader></TodoHeader>
-    <!-- <TodoInput v-on:하위 컴포넌트에서 발생시킨 이벤트 이름="현재 컴포넌트에서 메서드 명"></TodoInput> -->
-    <TodoInput v-on:addTodoItem="addOneItem"></TodoInput> 
-   <!-- <TodoList v-bind:내려보낼 프롭스 속성이름="현재 위치의 컴포넌트 데이터 속성"></TodoList> -->
-    <TodoList v-bind:propsdata="todoItems" v-on:removeItem="removeOneItem"
-    :toggleEvent="toggleOneItem" 
-    
+    <div class="container">
+      <!-- <router-view></router-view> -->
+      
+      <TodoHeader></TodoHeader>
+      <!-- <TodoInput v-on:하위 컴포넌트에서 발생시킨 이벤트 이름="현재 컴포넌트에서 메서드 명"></TodoInput> -->
+      <TodoInput v-on:addTodoItem="addOneItem"></TodoInput> 
+    <!-- <TodoList v-bind:내려보낼 프롭스 속성이름="현재 위치의 컴포넌트 데이터 속성"></TodoList> -->
+      <TodoList v-bind:propsdata="todoItems" v-on:removeItem="removeOneItem"
+      :toggleEvent="toggleOneItem" 
+      
 
-    @checkItem="checkItem"
-    :checked="checked"
-    
-    @toFixItem = "toFix = !toFix;"
-    @fixContent="fixContent($event);"></TodoList>
+      @checkItem="checkItem"
+      :checked="checked"
+      
+      @toFixItem = "toFix = !toFix;"
+      @fixContent="fixContent($event);"></TodoList>
 
 
 
-    <TodoFooter v-on:clearAll="clearAllItems"></TodoFooter>
+      <TodoFooter v-on:clearAll="clearAllItems"></TodoFooter>
     </div>
   </div>
 </template>

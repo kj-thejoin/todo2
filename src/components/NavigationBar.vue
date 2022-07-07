@@ -2,10 +2,10 @@
 <template>
     <ul>
         <li><route-link to="App">App</route-link></li>
-        <li><route-link to="TodoHeader">TodoHeader</route-link></li>
-        <li><route-link to="TodoInput">TodoInput</route-link></li>
-        <li><route-link to="TodoList">TodoList</route-link></li>
-        <li><route-link to="TodoFooter">TodoFooter</route-link></li>
+        <li><route-link to="/Header">TodoHeader</route-link></li>
+        <li><route-link to="/Input">TodoInput</route-link></li>
+        <li><route-link to="/List">TodoList</route-link></li>
+        <li><route-link to="/Footer">TodoFooter</route-link></li>
     </ul>
 </template>
 
