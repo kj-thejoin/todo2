@@ -8,7 +8,7 @@
       <!-- propsdata로 변경 -->
         <span class="content">
           {{ todoItem.item }}
-          <input type="text" v-if="showInput==true && !index" v-model="todoItems" @keyup.enter="changeItem(index)"  placeholder="editing.."  />
+          <input type="text" v-if="showInput==true && todoItem.item[index]" v-model="todoItems" @keyup.enter="changeItem(index)"  placeholder="editing.."  />
          
   
         </span>
