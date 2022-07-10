@@ -6,16 +6,20 @@
       <li v-for="(todoItem, index) in propsdata" class="shadow" v-bind:key="todoItem.item" >
       <i class="checkBtn fas fa-check" aria-hidden="true" @click="toggleComplete(todoItem, index)" :class="[todoItem.completed && checked==index ? 'checkBtnCompleted' :'checkBtn']"></i>
       <!-- propsdata로 변경 -->
-        <span class="content">{{ todoItem.item }}</span>
-
-        <!-- <input type="text" v-model="todoItems" @keyup.enter="changeItem(index)" v-show="toFix && checked==index" placeholder="수정 할 내용을 입력하세요."  /> -->
-        <input type="text" v-model="todoItems" @keyup.enter="changeItem(index)"  placeholder="수정 할 내용을 입력하세요."  />
-        <span class="fixBtn">
-          <i class="edit fa-solid fa-pencil" @click="changeItem"></i>
-          <!-- <i calss="fas fa-pencil-alt" @click="changeItem">수정</i> -->
+        <span class="content">
+          {{ todoItem.item }}
+          <input type="text" v-if="showInput==true && !index" v-model="todoItems" @keyup.enter="changeItem(index)"  placeholder="editing.."  />
+         
+  
         </span>
 
+        <!-- <input type="text" v-model="todoItems" @keyup.enter="changeItem(index)" v-show="toFix && checked==index" placeholder="수정 할 내용을 입력하세요."  /> -->
         
+        <span class="fixBtn">
+            <i class="edit fa-solid fa-pencil" @click="inputToggle"></i>
+            <!-- <i calss="fas fa-pencil-alt" @click="changeItem">수정</i> -->
+        </span>
+
         <span class="removeBtn" v-on:click="checkItem(index)">
           <i class="fas fa-trash-alt"></i>
         </span>
@@ -50,7 +54,7 @@ export default {
     return {
       todoItems: [],
       showModal:false,
-      
+      showInput :false,
     
     }
   }
@@ -58,7 +62,7 @@ export default {
   components: {
     "Modal": Modal
   },
-  props: {'propsdata' : [], 'toFix':Boolean, 'checked':Number, 'completed': Boolean},
+  props: {'propsdata' : Array, 'toFix':Boolean, 'checked':Number, 'completed': Boolean},
   methods: {
     removeTodo: function(todoItem, index) {
       this.$emit('removeItem', todoItem, index);
@@ -71,8 +75,12 @@ export default {
     toggleComplete: function(todoItem, index) {
       this.$emit('toggleEvent', todoItem, index);
     },
+    inputToggle :function() {
+      this.showInput = !this.showInput;
+    },
     changeItem : function(index) {
       // 수정 사항이 있을 경우
+      
       if(this.todoItems !== "") {
         // let value = this.todoItems && this.todoItems.trim();
         let value = this.todoItems

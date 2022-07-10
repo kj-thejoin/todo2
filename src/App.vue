@@ -13,7 +13,6 @@
       <TodoList v-bind:propsdata="todoItems" v-on:removeItem="removeOneItem"
       :toggleEvent="toggleOneItem" 
       
-
       @checkItem="checkItem"
       :checked="checked"
       
@@ -33,7 +32,7 @@ export default {
   name : 'App',
   data: function() { //옮김
     return {
-      id: [],
+      // id: [],
       todoItems: [],
       toFix: false,
       checked: 0,
@@ -106,7 +105,10 @@ export default {
 //  @import './assets/style/reset.scss';
 //  @import './assets/style/style.scss';
 
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
 body {
+  font-family: 'Itim', cursive;
   text-align:center;
   background-color:#f6f6f6;
 
@@ -116,6 +118,7 @@ input {
   border-style: groove;
   width:200px;
   outline:none;
+  border:none;
 }
 input:focus {
   outline:none;
@@ -131,15 +134,12 @@ button{
 }
 
 
-@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
 
-html, body {
-  font-family: 'Itim', cursive;
-}
 #app {
   font-family: 'Itim', cursive;
-  width:1000px; margin:0 auto;
+  width:100vw; margin:0 auto;
 }
+
 .container{
   width:800px;
   margin:0 auto;
@@ -157,4 +157,14 @@ html, body {
         background-color: black;
 }
 
+@media screen and (max-width: 320px) {
+     
+    }
+@media screen and (max-width: 599px) {
+       
+    }
+@media screen and (max-width: 1025px) {
+
+}
+    
 </style>
