@@ -1,13 +1,14 @@
 <!-- TodoInput.vue -->
 
 <template>
-  <div class="inputBox shadow">
+  <section class="inputBox shadow">
       <input type="text" v-model="newTodoItem" v-on:keyup.enter="addTodo">
       <!-- <button v-on:click="addTodo">add</button> -->
+      
       <span class="addContainer" v-on:click="addTodo">
         <i class="fas fa-plus addBtn" aria-hidden="true"></i>
       </span>
-  </div>
+  </section>
 </template>
 
 <script>

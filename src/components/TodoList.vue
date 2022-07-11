@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <section>
     <!-- <router-view></router-view> -->
     <!-- <ul> -->
     <transition-group name="list" tag="ul">
@@ -41,7 +41,7 @@
       </li>
     <!-- </ul> -->
     </transition-group>
-  </div>
+  </section>
 </template>
 
 

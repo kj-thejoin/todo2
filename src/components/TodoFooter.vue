@@ -1,8 +1,8 @@
 <template>
-  <div class="clearAllContainer">
+  <footer class="clearAllContainer">
     <!-- <router-view></router-view> -->
       <span class="clearAllBtn" v-on:click="clearTodo">Clear All</span>
-  </div>
+  </footer>
 </template>
 
 <script>
