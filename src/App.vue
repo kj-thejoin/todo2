@@ -36,7 +36,7 @@ export default {
       todoItems: [],
       toFix: false,
       checked: 0,
-      tempArr: '',
+      // tempArr: '',
       // completed:false
     }
   },
@@ -53,10 +53,10 @@ export default {
     toggleOneItem: function(todoItem, index) {
       //todoItem.completed = !todoItem.completed;
        
-      this.todoItems[index].completed = !this.todoItems[index].completed;
+      this.todoItem[index].completed = !this.todoItem[index].completed;
       // this.completed = this.todoItems[index].completed;
-      localStorage.removeItem(todoItem.item);
-      localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
+      // localStorage.removeItem(todoItem.item);
+      // localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
     },
     // completedCheck () {
     //   this.todoItems[index].completed = !this.todoItems[index].completed;
