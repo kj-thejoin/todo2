@@ -116,7 +116,8 @@ body {
 
 input {
   border-style: groove;
-  width:200px;
+  width:92%;
+  text-indent:15px;
   outline:none;
   border:none;
 }
